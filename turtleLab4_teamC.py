@@ -105,6 +105,26 @@ def mouseClick(x, y, board_size, cell_size):
     # Call the function to make a move and switch players
     makeMove(row, col)
     switchPlayers()
+    """
+    Function: Draw X and O and update board
+    Written By Frederika Del Cuore
+    Description: Draw an X or an O as per user and updates the game board
+    """ 
+    # Prompt the user to select "x" or "O"
+    symbol = turtle.textinput("Select Symbol", "Choose "x" or "O":   ").upper()
+    while symbol not in ["x", "o"]:
+        symbol = turtle.textinput("Select Symbol", "Invalid input. Choose"x" or "o":   ").upper()
+
+    #Update the board and draw the symbol
+    if board[row][col] == "":
+        board[row][col] = symbol
+        turtle.penup()
+        turtle.goto(col *cell_size - 50, 50 - row * cell _size)
+        turtle.pendown()
+        turtle.write(symbol, align="center", font=("Arial", 48, "normal"))
+
+
+
 
 def initializeBoard(board_size):
     '''
